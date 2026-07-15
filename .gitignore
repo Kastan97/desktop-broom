@@ -11,3 +11,5 @@ sea-prep.blob
 Thumbs.db
 desktop.ini
 .DS_Store
+*.exe
+*.zip
