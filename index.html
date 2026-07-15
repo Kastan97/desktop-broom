@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DesktopBroom — AI Desktop Organizer for Windows</title>
+<meta name="description" content="DesktopBroom uses AI to automatically organize your messy Windows desktop. Drag, drop, done.">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; min-height: 100vh; overflow-x: hidden; }
+.hero { text-align: center; padding: 120px 24px 80px; position: relative; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(0,229,255,0.08) 0%, transparent 60%); pointer-events: none; }
+h1 { font-size: clamp(36px, 6vw, 72px); font-weight: 800; letter-spacing: -0.03em; background: linear-gradient(135deg, #00e5ff, #7affc8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px; }
+.tagline { font-size: clamp(16px, 2.5vw, 22px); color: #888; max-width: 600px; margin: 0 auto 48px; line-height: 1.5; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px; border-radius: 14px; font-size: 18px; font-weight: 700; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: linear-gradient(135deg, #00e5ff, #7affc8); color: #0a0a0f; box-shadow: 0 4px 24px rgba(0,229,255,0.3); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,229,255,0.4); }
+.version { font-size: 13px; color: #555; margin-top: 16px; }
+.features { max-width: 900px; margin: 0 auto; padding: 60px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+.feature { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px 24px; text-align: center; }
+.feature-icon { font-size: 36px; margin-bottom: 16px; }
+.feature h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #e0e0e0; }
+.feature p { font-size: 14px; color: #777; line-height: 1.5; }
+.how { max-width: 800px; margin: 0 auto; padding: 60px 24px; text-align: center; }
+.how h2 { font-size: 32px; font-weight: 800; margin-bottom: 32px; background: linear-gradient(135deg, #00e5ff, #7affc8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.steps { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.step { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px 24px; flex: 1; min-width: 200px; max-width: 240px; }
+.step-num { font-size: 28px; font-weight: 800; color: #00e5ff; margin-bottom: 8px; }
+.step h4 { font-size: 16px; color: #e0e0e0; margin-bottom: 6px; }
+.step p { font-size: 13px; color: #777; }
+.footer { text-align: center; padding: 40px 24px; color: #444; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.04); }
+@media (max-width: 640px) { .hero { padding: 80px 16px 40px; } .features { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>DesktopBroom</h1>
+  <p class="tagline">Your AI-powered desktop organizer for Windows. Drop the mess, let the broom sweep.</p>
+  <a href="#" class="btn btn-primary" id="downloadBtn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download for Windows
+  </a>
+  <p class="version">v1.0 · ARM64 · 77 MB</p>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <div class="feature-icon">🧠</div>
+    <h3>AI-Powered Sorting</h3>
+    <p>Smart categorization learns your habits. Screenshots, PDFs, downloads — filed where they belong.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">⚡</div>
+    <h3>One-Click Clean</h3>
+    <p>No setup, no config files. Just run and watch your desktop transform in seconds.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">🔒</div>
+    <h3>100% Local</h3>
+    <p>Everything runs on your machine. Your files never leave your computer.</p>
+  </div>
+</section>
+
+<section class="how">
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Download</h4>
+      <p>Grab the .exe — no installer needed.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Run</h4>
+      <p>Double-click. DesktopBroom scans your desktop.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Sweep</h4>
+      <p>AI organizes everything into tidy folders.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 DesktopBroom · Built with ❤️ · <a href="mailto:matt@autovault.net" style="color:#555;text-decoration:underline;">Contact</a>
+</footer>
+
+<script>
+document.getElementById('downloadBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  // Direct download from R2
+  window.location.href = 'https://pub-d99b9f8e2b0a44b2a7a6de3fa122f138.r2.dev/DesktopBroom.exe';
+  // Track download
+  setTimeout(() => { this.textContent = '✓ Download Started!'; this.style.opacity = '0.8'; }, 200);
+});
+</script>
+
+</body>
+</html>
