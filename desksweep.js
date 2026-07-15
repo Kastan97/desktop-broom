@@ -276,13 +276,16 @@ async function main() {
   if (command === 'setup' || command === 'connect') { await setupKey(); return finish(); }
   if (!command) { // interactive (double-clicked)
     printWelcome();
-    dir = (await ask('  Folder to organize (blank = Desktop): ')).trim().replace(/^"|"$/g, '') || findDesktop();
-    const smart = (await ask('  Use SMART AI mode? (reads files to name them; needs a key) (y/N): ')).trim().toLowerCase();
+    // Ask about the AI key FIRST - and let people decline it (free mode).
+    const smart = (await ask('  Connect an AI key for SMART mode?  [y] connect (Claude/GPT/DeepSeek)   [N] no thanks, free mode: ')).trim().toLowerCase();
     if (smart === 'y' || smart === 'yes') {
       flags.ai = true;
       if (aiOpts.key) console.log(`  Using your saved ${aiOpts.provider} key. (run "DesktopBroom.exe setup" to change)`);
       else Object.assign(aiOpts, await setupKey());
+    } else {
+      console.log('  No worries - using FREE offline rules mode. 🧹');
     }
+    dir = (await ask('  Folder to organize (blank = Desktop): ')).trim().replace(/^"|"$/g, '') || findDesktop();
     command = 'plan';
   }
   if (['plan', 'apply', 'revert'].includes(command) && !dir) dir = findDesktop();
