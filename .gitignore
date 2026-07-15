@@ -1,0 +1,13 @@
+# build artifacts
+node_modules/
+*.exe
+sea-prep.blob
+
+# local secrets / user config
+.desktopbroom.json
+*.env
+
+# os junk
+Thumbs.db
+desktop.ini
+.DS_Store

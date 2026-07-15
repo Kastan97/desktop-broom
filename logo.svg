@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="240" viewBox="0 0 720 240">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="240" rx="28" fill="url(#bg)"/>
+  <!-- broom -->
+  <g transform="translate(40,40)">
+    <rect x="118" y="-6" width="14" height="120" rx="7" fill="#c9922e" transform="rotate(34 125 54)"/>
+    <polygon points="56,150 88,150 122,214 22,214" fill="#39ff14"/>
+    <g stroke="#166012" stroke-width="3">
+      <line x1="40" y1="158" x2="30" y2="210"/><line x1="56" y1="158" x2="52" y2="210"/>
+      <line x1="72" y1="158" x2="74" y2="210"/><line x1="88" y1="158" x2="96" y2="210"/>
+      <line x1="104" y1="158" x2="116" y2="210"/>
+    </g>
+    <!-- sparkles -->
+    <g fill="#ffffff"><path d="M150 60 l4 12 12 4 -12 4 -4 12 -4 -12 -12 -4 12 -4z"/></g>
+    <g fill="#39ff14"><path d="M118 26 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z"/></g>
+  </g>
+  <!-- wordmark -->
+  <text x="290" y="118" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="800" fill="#f8fafc">Desk<tspan fill="#39ff14">Sweep</tspan></text>
+  <text x="292" y="158" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="600" fill="#94a3b8">Freeware Problem Solver</text>
+</svg>

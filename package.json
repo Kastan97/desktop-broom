@@ -1,0 +1,17 @@
+{
+  "name": "desktop-broom",
+  "version": "1.0.0",
+  "description": "Fun, safe, undoable freeware that sweeps your messy desktop into tidy folders — with optional AI (Claude / GPT / DeepSeek) content-aware file naming.",
+  "bin": { "desktop-broom": "desksweep.js" },
+  "main": "desksweep.js",
+  "scripts": {
+    "start": "node desksweep.js",
+    "build": "powershell -ExecutionPolicy Bypass -File build-exe.ps1",
+    "icon": "node make-icon.js"
+  },
+  "keywords": ["desktop", "organizer", "cleanup", "declutter", "file-organizer", "ai", "freeware", "windows"],
+  "author": "Kastan97",
+  "license": "MIT",
+  "homepage": "https://desktopbroom.com",
+  "engines": { "node": ">=20" }
+}
