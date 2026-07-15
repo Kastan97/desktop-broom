@@ -1,0 +1,8 @@
+#!/bin/bash
+DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$DIR/../../.."
+SCRIPT="$(cd "$DIR/../../.." && pwd)/desksweep.js"
+if [ ! -f "$SCRIPT" ]; then
+  SCRIPT="$HOME/.openclaw/workspace-forge/desktop-broom/desksweep.js"
+fi
+exec /usr/local/bin/node "$SCRIPT"
