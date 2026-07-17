@@ -2,6 +2,8 @@
 node_modules/
 *.exe
 sea-prep.blob
+*.log
+rcedit-x64.exe
 
 # local secrets / user config
 .desktopbroom.json
@@ -11,3 +13,9 @@ sea-prep.blob
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# scratch / local build outputs (not for the site)
+release/
+site/
+READ-ME-FIRST.txt
+_build.log

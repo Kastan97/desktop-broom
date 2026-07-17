@@ -1,0 +1,5 @@
+# robots.txt for desktopbroom.com
+User-agent: *
+Allow: /
+
+Sitemap: https://desktopbroom.com/sitemap.xml

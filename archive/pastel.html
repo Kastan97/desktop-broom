@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Desktop Broom — Free App to Auto-Organize &amp; Clean Your Desktop</title>
+<meta name="description" content="Desktop Broom is a free desktop organizer for Windows that automatically sweeps a messy desktop into tidy folders, with optional AI file renaming. Free forever!">
+<meta name="keywords" content="free desktop organizer, clean up messy desktop, automatically organize desktop files, AI file organizer, auto rename files, declutter desktop Windows, free desktop cleaner, organize downloads folder">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Desktop Broom">
+<link rel="canonical" href="https://desktopbroom.com/">
+
+<!-- favicon: inline broom, keeps the page 100% self-contained -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%A7%B9%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Desktop Broom">
+<meta property="og:title" content="Desktop Broom — Free App to Auto-Organize &amp; Clean Your Desktop">
+<meta property="og:description" content="Free desktop organizer for Windows. Sweep your messy desktop into tidy folders automatically — with optional AI file renaming. No ads, no sign-up.">
+<meta property="og:url" content="https://desktopbroom.com/">
+<!-- TODO: replace with a real 1200x630 preview image hosted on your domain -->
+<meta property="og:image" content="https://desktopbroom.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Desktop Broom logo with Sweepy the mascot broom">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Desktop Broom — Free App to Auto-Organize &amp; Clean Your Desktop">
+<meta name="twitter:description" content="Free desktop organizer for Windows. Sweep a messy desktop into tidy folders automatically, with optional AI file renaming.">
+<!-- TODO: replace with a real 1200x630 preview image hosted on your domain -->
+<meta name="twitter:image" content="https://desktopbroom.com/og-image.png">
+<meta name="twitter:image:alt" content="Desktop Broom logo with Sweepy the mascot broom">
+
+<!-- Structured data: SoftwareApplication + FAQPage + Organization -->
+<!-- NOTE: aggregateRating values below are PLACEHOLDERS — swap for real numbers before launch. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Desktop Broom",
+      "operatingSystem": "Windows",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "Desktop Broom is a free desktop organizer for Windows that automatically sweeps a messy desktop into tidy folders by file type, with optional AI-powered file renaming. It can also organize your Downloads folder.",
+      "url": "https://desktopbroom.com/",
+      "downloadUrl": "https://github.com/Kastan97/desktop-broom/releases",
+      "softwareVersion": "1.0",
+      "fileSize": "77MB",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "420"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Desktop Broom really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Desktop Broom is 100% free forever. There are no ads, no sign-up, and no premium tier. It is donation-supported freeware — if you love it you can chip in, but you never have to."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Desktop Broom clean up a messy desktop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Point Desktop Broom at your desktop or your Downloads folder and it automatically sorts every loose file into tidy folders by type — images, PDFs, documents and more. One click and your messy desktop is clean."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the free desktop cleaner safe? Will it delete my files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Never. Desktop Broom does not delete anything — it only moves loose files into folders, and it never touches your existing folders or projects. It shows a full preview of the plan before doing anything, and there is one-click undo if you change your mind."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an AI key to use it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The AI file organizer is completely optional and off by default. Basic desktop cleaning works with zero setup and zero AI. If you turn on Smart Mode to auto-rename files, you bring your own key (Claude, GPT or DeepSeek). Smart Mode sends only small text snippets to your chosen provider; your key stays local."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it organize my Downloads folder too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Desktop Broom can declutter your desktop and organize your Downloads folder the same way, sweeping loose files into clean, labeled folders by type."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which platforms does Desktop Broom support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Desktop Broom runs on Windows on ARM (ARM64) today. An x64 build for regular Windows 10 and 11 PCs is coming soon, and an iOS version (sideload) is planned after that."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "Desktop Broom",
+      "url": "https://desktopbroom.com/",
+      "logo": "https://desktopbroom.com/og-image.png",
+      "sameAs": [
+        "https://github.com/Kastan97/desktop-broom"
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Helvetica,sans-serif;color:#3a2b25;background:#fff6f0;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  a{color:#e05a3a;text-decoration:none} a:hover{color:#3a2b25}
+  img,svg{display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .skip{position:absolute;left:-999px;top:0;background:#3a2b25;color:#fff;padding:10px 16px;border-radius:12px;z-index:110}
+  .skip:focus{left:16px;top:16px}
+  h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.02em;color:#2e211c}
+  p{margin:0}
+  .eyebrow{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#e05a3a}
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,246,240,.85);backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid #f2e2d8}
+  .nav-inner{display:flex;align-items:center;gap:20px;height:70px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:#2e211c}
+  .brand svg{width:28px;height:28px}
+  .nav-links{display:flex;gap:26px;margin-left:14px}
+  .nav-links a{color:#7a685f;font-weight:700;font-size:15px}
+  .nav-links a:hover{color:#2e211c}
+  .nav-cta{margin-left:auto;display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:16px;padding:13px 22px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .14s cubic-bezier(.34,1.56,.64,1),box-shadow .14s,background .14s;font-family:inherit}
+  .btn svg{width:18px;height:18px}
+  .btn-primary{background:#ff7a59;color:#fff;box-shadow:0 8px 0 #d94e2e}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 0 #d94e2e;color:#fff}
+  .btn-primary:active{transform:translateY(3px);box-shadow:0 3px 0 #d94e2e}
+  .btn-dark{background:#2e211c;color:#fff;box-shadow:0 8px 0 #16100d}
+  .btn-dark:hover{transform:translateY(-2px);color:#fff}
+  .btn-dark:active{transform:translateY(3px);box-shadow:0 3px 0 #16100d}
+  .btn-ghost{background:#fff;color:#2e211c;border-color:#f0dccf;box-shadow:0 6px 0 #f0dccf}
+  .btn-ghost:hover{transform:translateY(-2px);color:#2e211c}
+  .btn-sm{padding:9px 16px;font-size:14px;box-shadow:0 5px 0 #d94e2e}
+  .hero{padding:72px 0 46px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(38px,5.6vw,64px);font-weight:800;margin:16px 0 0}
+  .hero .sub{font-size:20px;color:#7a685f;margin:20px 0 28px;max-width:36ch}
+  .hero .ctas{display:flex;flex-wrap:wrap;gap:14px}
+  .hero .assure{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:24px;color:#8a7368;font-size:14px;font-weight:700}
+  .hero .assure span{display:inline-flex;align-items:center;gap:7px}
+  .hero .assure svg{width:16px;height:16px;color:#ff7a59}
+  .mock{background:#fff;border:2px solid #f2e2d8;border-radius:26px;box-shadow:0 26px 50px -26px rgba(224,90,58,.45);position:relative}
+  .mock-bar{display:flex;align-items:center;gap:8px;padding:15px 18px;border-bottom:1px solid #f6e8df;background:#fffaf6;border-radius:24px 24px 0 0}
+  .dot{width:11px;height:11px;border-radius:50%}
+  .mock-title{margin-left:10px;font-size:13px;font-weight:800;color:#a08a7e}
+  .mock-body{padding:20px}
+  .mock-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+  .mock-row .lhs{font-weight:800}
+  .mock-row .muted{color:#a08a7e;font-weight:500;font-size:14px}
+  .pill{background:#ffe7de;color:#d94e2e;font-weight:800;font-size:13px;padding:6px 13px;border-radius:999px;white-space:nowrap}
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .chip{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 15px;border:2px solid #f4e6dc;border-radius:16px;background:#fffaf6}
+  .chip .name{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px}
+  .chip .name svg{width:18px;height:18px;color:#ff7a59}
+  .chip .count{color:#b6a297;font-weight:800;font-size:13px}
+  .mock-foot{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:16px;padding-top:14px;border-top:1px solid #f6e8df;color:#8a7368;font-size:13px;font-weight:700}
+  .mock-foot span{display:inline-flex;align-items:center;gap:6px}
+  .mock-foot svg{width:15px;height:15px;color:#ff7a59}
+  .sweepy-badge{position:absolute;right:-10px;bottom:-16px;width:96px;height:auto;filter:drop-shadow(0 12px 18px rgba(224,90,58,.3))}
+  section{scroll-margin-top:80px}
+  .band{padding:86px 0}
+  .band.soft{background:#eefaf1;border-top:1px solid #dcf0e2;border-bottom:1px solid #dcf0e2}
+  .sec-head{max-width:660px;margin:0 auto 48px;text-align:center}
+  .sec-head h2{font-size:clamp(28px,3.8vw,44px);font-weight:800;margin:12px 0 0}
+  .sec-head p{color:#7a685f;font-size:18px;margin-top:14px}
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:30px 0}
+  .trust .item{display:flex;flex-direction:column;gap:10px;align-items:flex-start;background:#fff;border:2px solid #f2e2d8;border-radius:20px;padding:22px}
+  .trust .ic{flex:none;width:44px;height:44px;border-radius:14px;background:#ffe7de;color:#e05a3a;display:grid;place-items:center}
+  .trust .ic svg{width:22px;height:22px}
+  .trust h3{font-size:16px;font-weight:800}
+  .trust p{font-size:13.5px;color:#8a7d76;margin-top:0}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .step{background:#fff;border:2px solid #f2e2d8;border-radius:24px;padding:28px}
+  .step .num{width:44px;height:44px;border-radius:50%;background:#ff7a59;color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px;margin-bottom:16px;box-shadow:0 5px 0 #d94e2e}
+  .step h3{font-size:20px;font-weight:800}
+  .step p{color:#7a685f;margin-top:8px;font-size:15.5px}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .split h2{font-size:clamp(26px,3.4vw,40px);font-weight:800}
+  .split p.lead{color:#7a685f;font-size:18px;margin-top:16px}
+  .ticks{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+  .ticks li{display:flex;gap:11px;align-items:flex-start;font-size:16px}
+  .ticks svg{flex:none;width:22px;height:22px;color:#22a559;margin-top:1px}
+  .card-soft{background:#fff;border:2px solid #f2e2d8;border-radius:24px;padding:24px;box-shadow:0 18px 34px -26px rgba(224,90,58,.4)}
+  .card-soft .h{font-weight:800;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+  .safe-card{background:linear-gradient(180deg,#2e211c,#241a15);color:#f0e6df;border-radius:28px;padding:48px}
+  .safe-card .shield{width:52px;height:52px;color:#ffb59e;margin-bottom:10px}
+  .safe-card h2{color:#fff;font-size:clamp(26px,3.4vw,40px);font-weight:800}
+  .safe-card .lead{color:#d8c9c0;font-size:18px;margin-top:14px;max-width:54ch}
+  .safe-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+  .safe-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px}
+  .safe-item .t{display:flex;gap:10px;align-items:center;font-weight:800;color:#fff;font-size:16px}
+  .safe-item .t svg{flex:none;width:20px;height:20px;color:#ffb59e}
+  .safe-item p{color:#c3b3a9;font-size:14.5px;margin-top:8px}
+  .safe-note{color:#d8c9c0;font-size:14.5px;margin-top:24px;display:flex;gap:9px;align-items:flex-start}
+  .safe-note svg{flex:none;width:18px;height:18px;color:#ffb59e;margin-top:2px}
+  .rename{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;background:#2e211c;color:#f0e6df;border-radius:18px;padding:18px 20px;font-size:14.5px;line-height:1.9;overflow-x:auto}
+  .rename .bad{color:#ff9d8a;text-decoration:line-through} .rename .good{color:#96e6b3}
+  .badge-off{display:inline-flex;align-items:center;gap:8px;background:#eafaf0;color:#22a559;font-weight:800;font-size:14px;padding:9px 15px;border-radius:999px;margin-top:20px}
+  .dl-band{background:linear-gradient(135deg,#ff9a76,#ff7a59);color:#fff;border-radius:30px;padding:56px;text-align:center;box-shadow:0 24px 50px -24px rgba(224,90,58,.6)}
+  .dl-band h2{color:#fff;font-size:clamp(26px,3.4vw,42px);font-weight:800}
+  .dl-band>p{color:#fff1eb;font-size:18px;margin:14px auto 26px;max-width:52ch}
+  .dl-band .ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .dl-band .btn-primary{background:#fff;color:#e05a3a;box-shadow:0 8px 0 rgba(0,0,0,.18)}
+  .dl-band .btn-primary:hover{background:#fff6f2;color:#e05a3a}
+  .dl-band .btn-dark{background:#2e211c;color:#fff;box-shadow:0 8px 0 rgba(0,0,0,.3)}
+  .dl-band .btn-dark:hover{color:#fff}
+  .dl-band .fine{color:#ffe6dc;font-size:13.5px;margin-top:18px}
+  .updates{max-width:440px;margin:26px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.35)}
+  .updates p.lbl{color:#fff;font-size:14.5px;font-weight:800;margin-bottom:10px}
+  .wait{display:flex;flex-wrap:wrap;gap:10px}
+  .wait input{flex:1 1 200px;min-width:0;font:inherit;font-size:15px;padding:13px 16px;border:2px solid rgba(255,255,255,.6);border-radius:999px;background:rgba(255,255,255,.18);color:#fff}
+  .wait input::placeholder{color:#fff0ea}
+  .wait input:focus{outline:0;background:#fff;color:#2e211c;border-color:#fff}
+  .wait .btn-primary{background:#2e211c;color:#fff;box-shadow:0 6px 0 rgba(0,0,0,.3)}
+  .wait .btn-primary:hover{background:#241a15;color:#fff}
+  #waitmsg{margin-top:10px;font-weight:800;color:#fff;min-height:1.2em;font-size:14px}
+  .donate-card{border:2px solid #f2e2d8;border-radius:26px;padding:40px;text-align:center;background:#fff}
+  .donate-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:22px}
+  .faq{max-width:820px;margin:0 auto}
+  .faq details{border:2px solid #f2e2d8;border-radius:18px;padding:2px 22px;margin-bottom:12px;background:#fff}
+  .faq summary{list-style:none;cursor:pointer;font-weight:800;font-size:17px;padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .plus{flex:none;width:22px;height:22px;position:relative;transition:transform .2s}
+  .faq summary .plus::before,.faq summary .plus::after{content:"";position:absolute;background:#ff7a59;border-radius:2px}
+  .faq summary .plus::before{left:0;right:0;top:10px;height:2px}
+  .faq summary .plus::after{top:0;bottom:0;left:10px;width:2px}
+  .faq details[open] summary .plus{transform:rotate(45deg)}
+  .faq details p{color:#7a685f;padding:0 0 20px;font-size:15.5px}
+  footer.site{border-top:1px solid #f2e2d8;padding:46px 0;color:#8a7d76;font-size:14.5px}
+  .foot-top{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+  .foot-links{display:flex;flex-wrap:wrap;gap:22px}
+  .foot-links a{color:#7a685f;font-weight:700} .foot-links a:hover{color:#2e211c}
+  .foot-bottom{margin-top:24px;padding-top:20px;border-top:1px solid #f2e2d8;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+  .stylepill{position:fixed;top:12px;right:12px;z-index:100;background:#fff;border:2px solid #f2e2d8;color:#e05a3a;font-weight:800;font-size:13px;text-decoration:none;padding:8px 14px;border-radius:999px;box-shadow:0 5px 0 #f0dccf}
+  .stylepill:hover{color:#d94e2e;transform:translateY(-1px)}
+  @media (max-width:900px){.hero-grid,.split{grid-template-columns:1fr;gap:38px}.trust{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.safe-grid{grid-template-columns:1fr}.nav-links{display:none}.hero{padding:46px 0 22px}.band{padding:62px 0}.safe-card,.dl-band{padding:34px 24px}}
+  @media (max-width:520px){.trust{grid-template-columns:1fr}.chips{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<a class="stylepill" href="styles.html">↤ compare styles</a>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#main" aria-label="Desktop Broom home"><svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 4 10 13"/><path d="M10 13c-2.4-.2-4.6 1-5.6 5.4 4.4-.6 6-2.2 5.6-5.4z"/><path d="m14.5 8.5 1.5 1.5"/></svg><span>Desktop&nbsp;Broom</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#safety">Safety</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://github.com/Kastan97/desktop-broom" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-sm" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>Download free</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Free · Windows (ARM64) · No sign-up</p>
+        <h1>Clean up your messy desktop in one click.</h1>
+        <p class="sub">Desktop Broom is a free desktop organizer that automatically sorts loose files into tidy folders — safely, with a preview first and one-click undo. Optional AI file renaming included.</p>
+        <div class="ctas">
+          <!-- Download points to GitHub Releases — publish the ARM64 build there. -->
+          <a class="btn btn-primary" href="https://github.com/Kastan97/desktop-broom/releases" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>Download for Windows (ARM64)</a>
+        </div>
+        <div class="assure">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Free forever</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No ads, no sign-up</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Open source</span>
+        </div>
+      </div>
+      <div style="position:relative">
+        <div class="mock" role="img" aria-label="Desktop Broom preview: 248 loose files sorted into folders — Images 128, Documents 64, PDFs 32, Music 18, Installers 6 — with preview and undo">
+          <div class="mock-bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="mock-title">Desktop Broom</span></div>
+          <div class="mock-body">
+            <div class="mock-row"><span class="lhs">Desktop <span class="muted">· 248 loose files</span></span><span class="pill">1 click to tidy</span></div>
+            <div class="chips">
+              <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Images</span><span class="count">128</span></div>
+              <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Documents</span><span class="count">64</span></div>
+              <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>PDFs</span><span class="count">32</span></div>
+              <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Music</span><span class="count">18</span></div>
+              <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Installers</span><span class="count">6</span></div>
+              <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg>AI-renamed</span><span class="count">optional</span></div>
+            </div>
+            <div class="mock-foot"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>Preview first</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3.1 7.7-7 9-3.9-1.3-7-4.4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>Nothing deleted</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v6h6"/><path d="M3 13a9 9 0 1 0 3-7.7L3 8"/></svg>Undo anytime</span></div>
+          </div>
+        </div>
+        <svg class="sweepy-badge" viewBox="0 0 240 300" role="img" aria-label="Sweepy, the friendly Desktop Broom mascot" width="92" height="115">
+          <path d="M116 150 C64 140 30 178 44 250 C66 226 92 236 112 214 C104 190 110 168 128 158 Z" fill="#ff5a5a" stroke="#0f172a" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M150 176 L196 132" stroke="#0f172a" stroke-width="8" stroke-linecap="round"/><circle cx="200" cy="126" r="13" fill="#fff" stroke="#0f172a" stroke-width="6"/>
+          <path d="M92 178 L60 150" stroke="#0f172a" stroke-width="8" stroke-linecap="round"/><circle cx="55" cy="145" r="12" fill="#fff" stroke="#0f172a" stroke-width="6"/>
+          <rect x="106" y="34" width="20" height="140" rx="9" fill="#c98a3c" stroke="#0f172a" stroke-width="6" transform="rotate(5 116 104)"/>
+          <circle cx="120" cy="150" r="9" fill="#ffd24a" stroke="#0f172a" stroke-width="5"/>
+          <path d="M96 158 L150 156 L176 224 L74 226 Z" fill="#22c55e" stroke="#0f172a" stroke-width="7" stroke-linejoin="round"/>
+          <circle cx="112" cy="188" r="13" fill="#fff" stroke="#0f172a" stroke-width="5"/><circle cx="145" cy="186" r="13" fill="#fff" stroke="#0f172a" stroke-width="5"/>
+          <circle cx="116" cy="190" r="5" fill="#0f172a"/><circle cx="149" cy="188" r="5" fill="#0f172a"/>
+          <path d="M108 204 Q129 220 150 202" stroke="#0f172a" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <rect x="70" y="224" width="108" height="14" fill="#0f172a"/>
+          <path d="M72 238 L176 238 L182 288 L168 274 L156 290 L144 274 L132 290 L120 274 L108 290 L96 274 L84 290 L74 274 L66 288 Z" fill="#22c55e" stroke="#0f172a" stroke-width="5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="band soft">
+    <div class="wrap">
+      <div class="trust">
+        <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3.1 7.7-7 9-3.9-1.3-7-4.4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h3>Never deletes files</h3><p>It only moves loose files — your data is never removed.</p></div></div>
+        <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3>Preview before it moves</h3><p>Review the full plan first. Nothing happens without your OK.</p></div></div>
+        <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v6h6"/><path d="M3 13a9 9 0 1 0 3-7.7L3 8"/></svg></div><div><h3>One-click undo</h3><p>Changed your mind? Put everything back instantly.</p></div></div>
+        <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><div><h3>No account needed</h3><p>No sign-up. The core app runs fully offline on your device.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="how">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three steps to a clean desktop</h2><p>No manual dragging, no sorting by hand. Point, preview, sweep.</p></div>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>Pick a folder</h3><p>Aim Desktop Broom at your desktop or your Downloads folder.</p></div>
+        <div class="step"><div class="num">2</div><h3>Preview the plan</h3><p>See exactly what moves where. Nothing changes until you approve it.</p></div>
+        <div class="step"><div class="num">3</div><h3>Sweep</h3><p>One click sorts every loose file into clean, labeled folders by type.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band soft" id="what">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">What it does</p>
+        <h2>Automatically organize desktop files by type</h2>
+        <p class="lead">Desktop Broom is the free desktop cleaner that declutters a messy desktop in seconds — and it works on your Downloads folder too.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Sorts images, PDFs, documents, music, installers and more into tidy folders.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Cleans up your desktop and organizes your Downloads folder the same way.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Leaves your existing folders and projects completely untouched.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Core cleaning works offline — no account, no tracking. Only optional Smart Mode uses the internet.</span></li>
+        </ul>
+      </div>
+      <div class="card-soft">
+        <div class="h"><span>After sweeping</span><span class="pill">248 files sorted</span></div>
+        <div class="chips">
+          <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Images</span><span class="count">128</span></div>
+          <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Documents</span><span class="count">64</span></div>
+          <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>PDFs</span><span class="count">32</span></div>
+          <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Music</span><span class="count">18</span></div>
+          <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Installers</span><span class="count">6</span></div>
+          <div class="chip"><span class="name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Archives</span><span class="count">4</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="safety">
+    <div class="wrap">
+      <div class="safe-card">
+        <svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3.1 7.7-7 9-3.9-1.3-7-4.4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h2>Built to be safe by default</h2>
+        <p class="lead">Desktop Broom is careful with your files. It's a free desktop cleaner designed so you can always see what it will do — and undo it.</p>
+        <div class="safe-grid">
+          <div class="safe-item"><div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Never deletes anything</div><p>It only moves loose files into folders. Nothing is ever removed or emptied.</p></div>
+          <div class="safe-item"><div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Only touches loose files</div><p>Your existing folders, projects and shortcuts are left exactly where they are.</p></div>
+          <div class="safe-item"><div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Preview before anything moves</div><p>You get a full plan of every move and approve it before a single file changes.</p></div>
+          <div class="safe-item"><div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One-click undo</div><p>Don't like the result? Revert the whole sweep instantly, no cleanup needed.</p></div>
+        </div>
+        <p class="safe-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>In Smart Mode, small text snippets are sent to your chosen AI provider; nothing else is uploaded. It is off by default and uses your own key.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band soft" id="smart">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Smart Mode</p>
+        <h2>Optional AI that renames files properly</h2>
+        <p class="lead">Turn on Smart Mode and Desktop Broom becomes an AI file organizer that reads your files and gives them clear, human names instead of cryptic ones.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Auto rename files with meaningful names and dates.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Bring your own key — works with Claude, GPT, or DeepSeek.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Completely optional and off by default.</span></li>
+        </ul>
+        <span class="badge-off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg>Off by default · Sends only snippets · Key stays local</span>
+      </div>
+      <div class="rename" aria-label="Example of AI renaming a file">
+        <span class="bad">IMG_20231104_final_FINAL_v2(3).jpg</span><br>
+        ↓<br>
+        <span class="good">2023-11-04 — birthday cake.jpg</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="download">
+    <div class="wrap">
+      <div class="dl-band">
+        <h2>Ready to tidy up?</h2>
+        <p>Free forever. No ads, no sign-up. Download Desktop Broom for Windows (ARM64) and clean up your messy desktop in one click.</p>
+        <div class="ctas">
+          <!-- Download points to GitHub Releases — publish the ARM64 build there. -->
+          <a class="btn btn-primary" href="https://github.com/Kastan97/desktop-broom/releases" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>Download for Windows (ARM64)</a>
+        </div>
+        <p class="fine">Windows on ARM (ARM64) · ~77&nbsp;MB · x64 build coming soon · always free</p>
+        <div class="updates">
+          <p class="lbl">iOS is coming soon (sideload). Want release notes and update alerts?</p>
+          <!-- TODO: swap the mailto for a real form endpoint / email service -->
+          <form class="wait" id="waitlist" novalidate>
+            <label class="skip" for="wl-email">Your email for updates</label>
+            <input id="wl-email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
+            <button class="btn btn-primary" type="submit">Notify me</button>
+          </form>
+          <p id="waitmsg" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band soft" id="donate">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Support the project</p><h2>Free forever — powered by good vibes &amp; snacks</h2><p>Desktop Broom is free and donation-supported. If it saved you some time, a small tip keeps it free for everyone.</p></div>
+      <div class="donate-card">
+        <p style="color:#475569;font-size:17px;max-width:52ch;margin:0 auto">No premium tier, no locked features — just an app we love keeping free. Every little bit helps with servers (and snacks).</p>
+        <div class="donate-btns">
+          <!-- TODO: replace with your real Buy Me a Coffee URL --><a class="btn btn-ghost" href="#" data-todo="https://www.buymeacoffee.com/desktopbroom"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9C1 8.6 2.6 5.5 5.8 5.5c1.9 0 3.2 1.1 4.2 2.4 1-1.3 2.3-2.4 4.2-2.4 3.2 0 4.8 3.1 3.1 6.5C19 16.4 12 21 12 21z"/></svg>Buy me a coffee</a>
+          <!-- TODO: replace with your real Ko-fi URL --><a class="btn btn-ghost" href="#" data-todo="https://ko-fi.com/desktopbroom"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9C1 8.6 2.6 5.5 5.8 5.5c1.9 0 3.2 1.1 4.2 2.4 1-1.3 2.3-2.4 4.2-2.4 3.2 0 4.8 3.1 3.1 6.5C19 16.4 12 21 12 21z"/></svg>Ko-fi</a>
+          <!-- TODO: replace with your real PayPal URL --><a class="btn btn-ghost" href="#" data-todo="https://paypal.me/desktopbroom"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9C1 8.6 2.6 5.5 5.8 5.5c1.9 0 3.2 1.1 4.2 2.4 1-1.3 2.3-2.4 4.2-2.4 3.2 0 4.8 3.1 3.1 6.5C19 16.4 12 21 12 21z"/></svg>PayPal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">FAQ</p><h2>Questions, answered</h2></div>
+      <div class="faq">
+        <details open><summary>Is Desktop Broom really free?<span class="plus"></span></summary><p>Yes — Desktop Broom is 100% free forever. No ads, no sign-up, no premium tier. It's donation-supported freeware, so if you love it you can chip in, but you never have to.</p></details>
+        <details><summary>How does it clean up a messy desktop?<span class="plus"></span></summary><p>Point Desktop Broom at your desktop or your Downloads folder and it automatically sorts every loose file into tidy folders by type — images, PDFs, documents and more. One click and your messy desktop is clean.</p></details>
+        <details><summary>Is it safe? Will it delete my files?<span class="plus"></span></summary><p>Never. Desktop Broom does not delete anything — it only moves loose files into folders, and it never touches your existing folders or projects. It shows a full preview before doing anything, and there's one-click undo if you change your mind.</p></details>
+        <details><summary>Do I need an AI key to use it?<span class="plus"></span></summary><p>No. The AI file organizer is completely optional and off by default. Basic desktop cleaning works with zero setup and zero AI. If you turn on Smart Mode to auto-rename files, you bring your own key (Claude, GPT or DeepSeek). Smart Mode sends only small text snippets to your chosen provider; your key stays local.</p></details>
+        <details><summary>Can it organize my Downloads folder too?<span class="plus"></span></summary><p>Yes. Desktop Broom can declutter your desktop and organize your Downloads folder the same way, sweeping loose files into clean, labeled folders by type.</p></details>
+        <details><summary>Which platforms does it support?<span class="plus"></span></summary><p>Desktop Broom runs on Windows on ARM (ARM64) today. An x64 build for regular Windows 10 and 11 PCs is coming soon, and an iOS version (sideload) is planned after that.</p></details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="#main" aria-label="Desktop Broom home"><svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 4 10 13"/><path d="M10 13c-2.4-.2-4.6 1-5.6 5.4 4.4-.6 6-2.2 5.6-5.4z"/><path d="m14.5 8.5 1.5 1.5"/></svg><span>Desktop&nbsp;Broom</span></a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#how">How it works</a>
+        <a href="#safety">Safety</a>
+        <a href="#download">Download</a>
+        <a href="#faq">FAQ</a>
+        <a href="#donate">Donate</a>
+        <a href="https://github.com/Kastan97/desktop-broom" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Desktop Broom · Free &amp; open-source freeware</span><span>desktopbroom.com</span></div>
+  </div>
+<p style="max-width:640px;margin:16px auto 0;font-size:12px;opacity:.7;line-height:1.5">⚠️ Use at your own risk. Desktop Broom is provided &quot;as is&quot;, without warranty of any kind. We are not responsible for any data loss, damage, or other consequences from using it. Always keep a backup.</p>
+</footer>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('[data-todo]');
+  for(var i=0;i<links.length;i++){ links[i].addEventListener('click', function(e){ e.preventDefault(); }); }
+  var form = document.getElementById('waitlist');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var input = form.querySelector('input[type=email]');
+      var email = input ? input.value.trim() : '';
+      var msg = document.getElementById('waitmsg');
+      if(!/^.+@.+\..+$/.test(email)){ if(msg){ msg.textContent = 'Please enter a valid email address.'; } return; }
+      if(msg){ msg.textContent = "You're on the list — opening your email app to confirm."; }
+      /* TODO: replace mailto with a real form endpoint / email service */
+      window.location.href = 'mailto:hello@desktopbroom.com?subject=' + encodeURIComponent('Desktop Broom updates') + '&body=' + encodeURIComponent('Please add me to update alerts: ' + email);
+    });
+  }
+})();
+</script>
+</body>
+</html>

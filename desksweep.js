@@ -263,7 +263,11 @@ async function main() {
   const provIdx = args.indexOf('--provider'); const provider = (provIdx >= 0 ? args[provIdx + 1] : (process.env.DESKTOPBROOM_PROVIDER || cfg.provider)) || 'anthropic';
   const modelIdx = args.indexOf('--model'); const model = modelIdx >= 0 ? args[modelIdx + 1] : (process.env.DESKTOPBROOM_MODEL || cfg.model);
   const aiOpts = { provider, key, model };
-  const consumed = new Set([args[keyIdx + 1], args[provIdx + 1], args[modelIdx + 1]].filter(Boolean));
+  // Only treat a flag's value as "consumed" when the flag is actually present.
+  // (indexOf returns -1 when absent, and args[-1 + 1] === args[0] would wrongly
+  // swallow the command word, breaking `plan/apply/revert <folder>`.)
+  const consumed = new Set();
+  for (const idx of [keyIdx, provIdx, modelIdx]) if (idx >= 0 && args[idx + 1]) consumed.add(args[idx + 1]);
   const positional = args.filter(a => !a.startsWith('--') && !consumed.has(a));
   const cmd = positional[0];
 

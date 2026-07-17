@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Desktop Broom — Free File &amp; Desktop Organizer (Windows + Mac)</title>
+<meta name="description" content="Desktop Broom is a free desktop organizer for Windows that automatically sweeps a messy desktop into tidy folders, with optional AI file renaming. Free forever!">
+<meta name="keywords" content="free desktop organizer, clean up messy desktop, automatically organize desktop files, AI file organizer, auto rename files, declutter desktop Windows, free desktop cleaner, organize downloads folder">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f172a">
+<meta name="author" content="Desktop Broom">
+<link rel="canonical" href="https://desktopbroom.com/">
+
+<!-- favicon: inline broom, keeps the page 100% self-contained -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%A7%B9%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Desktop Broom">
+<meta property="og:title" content="Desktop Broom — Free File &amp; Desktop Organizer (Windows + Mac)">
+<meta property="og:description" content="Free desktop organizer for Windows. Sweep your messy desktop into tidy folders automatically — with optional AI file renaming. No ads, no sign-up.">
+<meta property="og:url" content="https://desktopbroom.com/">
+
+<meta property="og:image" content="https://desktopbroom.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Desktop Broom logo with Sweepy the mascot broom">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Desktop Broom — Free File &amp; Desktop Organizer (Windows + Mac)">
+<meta name="twitter:description" content="Free desktop organizer for Windows. Sweep a messy desktop into tidy folders automatically, with optional AI file renaming.">
+
+<meta name="twitter:image" content="https://desktopbroom.com/og-image.png">
+<meta name="twitter:image:alt" content="Desktop Broom logo with Sweepy the mascot broom">
+
+<!-- Structured data: SoftwareApplication + FAQPage + Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Desktop Broom",
+      "operatingSystem": "Windows, macOS",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "Desktop Broom is a free desktop organizer for Windows that automatically sweeps a messy desktop into tidy folders by file type, with optional AI-powered file renaming. It can also organize your Downloads folder.",
+      "url": "https://desktopbroom.com/",
+      "downloadUrl": "https://pub-d99b9f8e2b0a44b2a7a6de3fa122f138.r2.dev/DesktopBroom.exe",
+      "softwareVersion": "1.0",
+      "fileSize": "77MB",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Desktop Broom really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Desktop Broom is 100% free forever. There are no ads, no sign-up, and no premium tier. It is donation-supported freeware — if you love it you can chip in, but you never have to."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Desktop Broom clean up a messy desktop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Point Desktop Broom at your desktop or your Downloads folder and it automatically sorts every loose file into tidy folders by type — images, PDFs, documents and more. One click and your messy desktop is clean."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the free desktop cleaner safe? Will it delete my files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Never. Desktop Broom does not delete anything — it only moves loose files into folders, and it never touches your existing folders or projects. It shows a full preview of the plan before doing anything, and there is one-click undo if you change your mind."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an AI key to use it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The AI file organizer is completely optional and off by default. Basic desktop cleaning works with zero setup and zero AI. If you turn on Smart Mode to auto-rename files, you bring your own key (Claude, GPT or DeepSeek). Smart Mode sends only small text snippets to your chosen provider; your key stays local."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it organize my Downloads folder too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Desktop Broom can declutter your desktop and organize your Downloads folder the same way, sweeping loose files into clean, labeled folders by type."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which platforms does Desktop Broom support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Desktop Broom runs on Windows 10 and 11 (64-bit / x64) and macOS today. An iOS version (sideload) is planned after that."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "Desktop Broom",
+      "url": "https://desktopbroom.com/",
+      "logo": "https://desktopbroom.com/og-image.png",
+      "sameAs": [
+        "https://github.com/Kastan97/desktop-broom"
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --navy:#000080; --green:#39ff14; --gray:#c0c0c0; --teal:#008080;
+    --tahoma:Tahoma,"Segoe UI","MS Sans Serif",Geneva,sans-serif;
+    --comic:"Comic Sans MS","Comic Sans","Comic Neue",cursive,sans-serif;
+    --bevel: inset -1px -1px 0 #0a0a0a, inset 1px 1px 0 #ffffff, inset -2px -2px 0 #808080, inset 2px 2px 0 #dfdfdf;
+    --bevel-in: inset 1px 1px 0 #0a0a0a, inset -1px -1px 0 #ffffff, inset 2px 2px 0 #808080, inset -2px -2px 0 #dfdfdf;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--tahoma);color:#111;background:#008080;font-size:17px;line-height:1.5;overflow-x:hidden}
+  a{color:#000080} a:hover{color:#1084d0}
+  .wrap{max-width:940px;margin:0 auto;padding:0 16px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  h1,h2,h3{font-family:var(--tahoma);line-height:1.1;margin:0}
+  .wordart{color:#fff;letter-spacing:1px;text-transform:none;text-shadow:2px 2px 0 #000080,4px 4px 0 rgba(0,0,0,.4)}
+  .marquee{overflow:hidden;white-space:nowrap;background:var(--gray);box-shadow:var(--bevel-in);margin:4px 0}
+  .marquee>span{display:inline-block;padding:6px 0;animation:marquee 26s linear infinite;color:#111;font-weight:bold;font-size:15px;font-family:var(--tahoma)}
+  .marquee b{color:#000080} .marquee i{color:#c0007a;font-style:normal}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .construction{font-family:var(--tahoma);font-weight:bold;color:#111;text-align:center;padding:5px 8px;font-size:14px;background:repeating-linear-gradient(45deg,#ffd400 0 22px,#111 22px 44px)}
+  .construction span{background:#111;color:#ffd400;padding:2px 8px;text-shadow:0 0 6px rgba(255,212,0,.4)}
+  section{padding:26px 0}
+  .box{position:relative;background:var(--gray);color:#111;border:0;border-radius:0;padding:0 16px 18px;box-shadow:var(--bevel),6px 6px 0 rgba(0,0,0,.35);transition:transform .12s}
+  .tiltL{transform:rotate(-1deg)} .tiltR{transform:rotate(1deg)}
+  .box:hover{transform:rotate(0)}
+  .box h2{position:relative;display:block;margin:0 -16px 16px;padding:6px 34px 6px 10px;background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-family:var(--tahoma);font-size:18px;text-transform:none;text-shadow:none}
+  .box h2::after{content:"\00d7";position:absolute;top:5px;right:6px;width:22px;height:20px;display:grid;place-items:center;background:var(--gray);color:#111;font-size:15px;font-weight:bold;box-shadow:var(--bevel)}
+  .box h3{color:#000080}
+  .lead{font-size:19px}
+  .hr-candy{height:2px;border:0;margin:10px 0;background:#808080;box-shadow:0 1px 0 #fff}
+  .yesbig{color:#008000}
+  .btn{font-family:var(--tahoma);text-transform:none;letter-spacing:0;font-weight:bold;color:#111;background:var(--gray);border:0;border-radius:0;padding:10px 18px;box-shadow:var(--bevel);cursor:pointer;text-decoration:none;display:inline-block;font-size:16px}
+  .btn:hover{filter:brightness(1.02)}
+  .btn:active{box-shadow:var(--bevel-in);transform:translate(1px,1px)}
+  .btn-dl{background:#39ff14;color:#04210a;font-size:clamp(18px,3.6vw,30px);padding:16px 26px;box-shadow:var(--bevel),0 0 16px rgba(57,255,20,.6);animation:btnpulse 1.2s ease-in-out infinite}
+  .btn-dl:hover{color:#04210a}
+  @keyframes btnpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .coffee{background:#ffd400} .kofi{background:#1084d0;color:#fff} .paypal{background:#fff}
+  .btn-ios{background:#111;color:#fff;font-size:clamp(18px,3.6vw,28px);padding:16px 24px}
+  .btn-ios:hover{background:#000;color:#fff}
+  .star{background:none;border:0;cursor:pointer;padding:0 3px;font-size:clamp(28px,5vw,36px);line-height:1;transition:transform .12s,color .12s,text-shadow .12s;outline:none;user-select:none}.star.on{color:#e8a200;text-shadow:0 0 10px rgba(255,170,0,.5);transform:scale(1.05)}.star.off{color:#555}.star:hover{transform:scale(1.18)}.star:active{transform:scale(.85)}
+  .hero{text-align:center;padding-top:22px}
+  .hero h1{font-size:clamp(44px,10vw,92px);margin:6px 0 4px}
+  .subtitle{font-family:var(--comic);color:#fff;font-size:clamp(18px,3.5vw,26px);font-weight:bold;margin:0;text-shadow:1px 1px 0 #000080}
+  .kw{font-family:var(--comic);color:#f0fff0;font-size:17px;max-width:560px;margin:12px auto 0}
+  .kw strong{color:#eaff00}
+  .sweepy{width:210px;height:290px;display:block;margin:8px auto -6px;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.4));animation:bob 3s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+  .cape{transform-origin:120px 150px;animation:flap 1.6s ease-in-out infinite}
+  @keyframes flap{0%,100%{transform:skewY(0)}50%{transform:skewY(-6deg)}}
+  .dl-note{font-family:var(--comic);font-size:14px;color:#eafff0;margin-top:12px}
+  .badges{display:flex;gap:22px;justify-content:center;align-items:center;flex-wrap:wrap;margin:14px 0 4px}
+  .newbadge{width:80px;height:80px;border-radius:50%;background:#e11d1d;color:#fff;display:grid;place-items:center;font-family:var(--tahoma);font-weight:bold;font-size:18px;border:3px solid #fff;box-shadow:0 0 0 3px #000;animation:spin 3.6s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .starburst{position:relative;width:180px;height:180px;display:grid;place-items:center;text-align:center;color:#fff;font-family:var(--tahoma);font-weight:bold;font-size:15px;line-height:1.15;background:#e11d1d;animation:blink 1.05s steps(1) infinite;clip-path:polygon(50% 0,61% 22%,84% 15%,79% 39%,100% 50%,79% 61%,84% 85%,61% 78%,50% 100%,39% 78%,16% 85%,21% 61%,0 50%,21% 39%,16% 15%,39% 22%);text-shadow:1px 1px 0 #000}
+  @keyframes blink{50%{background:#ffd400;color:#111}}
+  .starburst b{font-size:19px;color:#fff}
+  .desk{position:relative;height:340px;background:#008080;border:0;border-radius:0;overflow:hidden;box-shadow:var(--bevel-in)}
+  .desk .bar{position:absolute;top:0;left:0;right:0;height:24px;background:linear-gradient(90deg,#000080,#1084d0);border:0;color:#fff;font-family:var(--tahoma);font-size:13px;display:flex;align-items:center;padding:0 8px;font-weight:bold}
+  .desk .bar::before{content:"\1F5D4 my (messy) desktop"}
+  .file{position:absolute;font-size:32px;animation:sweepin 4.2s ease-in infinite}
+  .broomer{position:absolute;bottom:34px;font-size:52px;animation:broomer 4.2s ease-in-out infinite}
+  .folders{position:absolute;bottom:12px;right:14px;display:flex;gap:10px}
+  .folder{font-family:var(--tahoma);font-weight:bold;color:#fff;text-align:center;font-size:13px;text-shadow:1px 1px 0 #000;animation:fbounce 4.2s ease-in-out infinite}
+  .folder span{display:block;font-size:40px;line-height:1}
+  @keyframes sweepin{0%,52%{transform:translate(0,0) rotate(var(--r,0deg)) scale(1);opacity:1}78%{transform:translate(var(--tx),var(--ty)) rotate(680deg) scale(.12);opacity:0}100%{transform:translate(var(--tx),var(--ty)) rotate(680deg) scale(.12);opacity:0}}
+  @keyframes broomer{0%{left:-60px;transform:rotate(-18deg)}52%{left:-60px;transform:rotate(-18deg)}80%{left:calc(100% - 40px);transform:rotate(20deg)}100%{left:calc(100% - 40px);transform:rotate(20deg);opacity:0}}
+  @keyframes fbounce{0%,66%{transform:none}74%{transform:translateY(-10px) scale(1.12)}84%{transform:none}}
+  .demo-note{font-family:var(--comic);font-size:14px;color:#111;text-align:center;margin-top:10px}
+  ul.promises{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+  ul.promises li{background:#fff;border:0;box-shadow:var(--bevel-in);padding:12px 14px;font-size:17px;color:#111}
+  ul.promises li b{color:#008000}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{background:var(--gray);box-shadow:var(--bevel);border:0;border-radius:0;padding:16px;color:#111;text-align:center}
+  .step .n{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:0;background:#000080;color:#fff;font-family:var(--tahoma);font-weight:bold;font-size:22px;box-shadow:var(--bevel);margin-bottom:8px}
+  .step .em{font-size:44px;display:block;margin:4px 0}
+  .step h3{color:#000080;font-size:18px}
+  .rename{font-family:"Courier New",monospace;background:#fff;color:#111;box-shadow:var(--bevel-in);border:0;border-radius:0;padding:12px 14px;font-size:15px;line-height:1.9;overflow-x:auto}
+  .rename .bad{color:#c00;text-decoration:line-through} .rename .good{color:#008000}
+  .toggle{display:inline-flex;align-items:center;gap:8px;background:var(--gray);color:#111;box-shadow:var(--bevel);border:0;border-radius:0;padding:6px 14px;font-family:var(--tahoma);font-weight:bold;font-size:14px;margin-top:12px}
+  .waitform{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+  .waitform input[type=email]{flex:1 1 240px;min-width:0;font-family:var(--tahoma);font-size:17px;padding:10px;border:0;box-shadow:var(--bevel-in);background:#fff;color:#111;border-radius:0}
+  #waitmsg{margin:12px 0 0;font-weight:bold;color:#008000;min-height:1.2em;font-family:var(--comic)}
+  .soon{display:inline-block;background:#ffd400;color:#111;font-family:var(--tahoma);font-weight:bold;font-size:18px;padding:3px 12px;box-shadow:var(--bevel);animation:blink2 1s steps(1) infinite}
+  @keyframes blink2{50%{background:#e11d1d;color:#fff}}
+  .donate .btn{font-size:18px;padding:14px 20px}
+  .cheeky{font-family:var(--comic);font-size:15px;text-align:center;margin-top:14px;color:#111}
+  footer{text-align:center;padding:30px 16px 60px;font-size:15px;color:#fff;font-family:var(--comic)}
+  .counter{display:inline-flex;align-items:center;gap:8px;background:#000;box-shadow:var(--bevel-in);padding:8px 14px;font-family:"Courier New",monospace;color:#39ff14;font-size:20px;letter-spacing:2px}
+  footer p{margin:10px 0} .best{font-style:italic;opacity:.95}
+  .flr{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0}
+  footer a{color:#eaff00} footer a:hover{color:#fff}
+  .sparkle{position:fixed;pointer-events:none;font-size:16px;z-index:9998;transform:translate(-50%,-50%);animation:sparkle .75s ease-out forwards}
+  @keyframes sparkle{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,20px) scale(.2) rotate(90deg)}}
+  #confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999;display:none}
+  @media (max-width:640px){body{font-size:16px}.steps{grid-template-columns:1fr}.desk{height:300px}.newbadge{width:68px;height:68px;font-size:15px}.starburst{width:150px;height:150px;font-size:13px}}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;scroll-behavior:auto !important}.file{opacity:.9}.broomer{left:44%}}
+</style>
+</head>
+<body>
+
+<!-- ===== top ticker ===== -->
+<div class="marquee" aria-hidden="true">
+  <span>★&nbsp;&nbsp;welcome 2 <b>DESKTOP BROOM</b>!!!&nbsp;&nbsp; ★&nbsp;&nbsp; ur desktop called... <i>it's embarrassed</i> 📞&nbsp;&nbsp; ★&nbsp;&nbsp; <b>100% FREE</b> 4ever&nbsp;&nbsp; ★&nbsp;&nbsp; no ads&nbsp;&nbsp; ★&nbsp;&nbsp; no sign-up&nbsp;&nbsp; ★&nbsp;&nbsp; free desktop organizer 4 windows&nbsp;&nbsp; ★&nbsp;&nbsp; sweepy loves u 💚&nbsp;&nbsp;
+  ★&nbsp;&nbsp;welcome 2 <b>DESKTOP BROOM</b>!!!&nbsp;&nbsp; ★&nbsp;&nbsp; ur desktop called... <i>it's embarrassed</i> 📞&nbsp;&nbsp; ★&nbsp;&nbsp; <b>100% FREE</b> 4ever&nbsp;&nbsp; ★&nbsp;&nbsp; no ads&nbsp;&nbsp; ★&nbsp;&nbsp; no sign-up&nbsp;&nbsp; ★&nbsp;&nbsp; free desktop organizer 4 windows&nbsp;&nbsp; ★&nbsp;&nbsp; sweepy loves u 💚&nbsp;&nbsp;</span>
+</div>
+<div class="construction"><span>🚧 under construction 4ever 🚧 &nbsp; this site is intentionally a mess (like ur desktop) 🚧</span></div>
+
+<!-- ===== HERO ===== -->
+<header class="hero wrap">
+  <div class="badges">
+    <div class="starburst" role="img" aria-label="One hundred percent free, no ads, no sign-up">
+      <span><b>100% FREE</b><br>NO ADS<br>NO SIGN-UP</span>
+    </div>
+    <svg class="sweepy" viewBox="0 0 240 300" role="img" aria-label="Sweepy, a neon-green cartoon broom superhero with a little red cape" width="210" height="290">
+      <!-- cape (behind) -->
+      <path class="cape" d="M116 150 C64 140 30 178 44 250 C66 226 92 236 112 214 C104 190 110 168 128 158 Z" fill="#ff2b2b" stroke="#000" stroke-width="5" stroke-linejoin="round"/>
+      <!-- raised arm + glove -->
+      <path d="M150 176 L196 132" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="200" cy="126" r="13" fill="#fff" stroke="#000" stroke-width="5"/>
+      <path d="M92 178 L60 150" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="55" cy="145" r="12" fill="#fff" stroke="#000" stroke-width="5"/>
+      <!-- handle -->
+      <rect x="106" y="34" width="20" height="140" rx="9" fill="#b5741f" stroke="#000" stroke-width="5" transform="rotate(5 116 104)"/>
+      <!-- cape clasp -->
+      <circle cx="120" cy="150" r="9" fill="#ffe600" stroke="#000" stroke-width="4"/>
+      <!-- head block (green) -->
+      <path d="M96 158 L150 156 L176 224 L74 226 Z" fill="#39ff14" stroke="#000" stroke-width="6" stroke-linejoin="round"/>
+      <!-- face -->
+      <circle cx="112" cy="188" r="13" fill="#fff" stroke="#000" stroke-width="4"/>
+      <circle cx="145" cy="186" r="13" fill="#fff" stroke="#000" stroke-width="4"/>
+      <circle cx="116" cy="190" r="5" fill="#000"/>
+      <circle cx="149" cy="188" r="5" fill="#000"/>
+      <path d="M108 204 Q129 220 150 202" stroke="#000" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <circle cx="98" cy="200" r="6" fill="#ff69c9" opacity=".8"/>
+      <circle cx="162" cy="198" r="6" fill="#ff69c9" opacity=".8"/>
+      <!-- bristle tie -->
+      <rect x="70" y="224" width="108" height="14" fill="#0f172a" stroke="#000" stroke-width="4"/>
+      <!-- bristles (jagged) -->
+      <path d="M72 238 L176 238 L182 288 L168 274 L156 290 L144 274 L132 290 L120 274 L108 290 L96 274 L84 290 L74 274 L66 288 Z" fill="#39ff14" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M96 240 L90 284 M120 240 L120 286 M148 240 L152 282" stroke="#0a7a2a" stroke-width="3"/>
+    </svg>
+    <div class="newbadge" role="img" aria-label="New">NEW!</div>
+  </div>
+
+  <p class="subtitle">the freeware problem solver</p>
+  <h1 class="wordart">🧹 Desktop Broom 🧹</h1>
+  <p class="kw">the <strong>free desktop organizer</strong> that sweeps your <strong>messy desktop</strong> clean — it automatically organizes desktop files &amp; any folder into tidy folders, and can AI-rename them too. your desktop called. it's embarrassed. 😳</p>
+
+  <div style="margin:16px 0 2px"><span class="soon" style="font-size:20px">✨ NOW WITH AI ✨</span></div>
+
+  <div class="btn-row" style="margin-top:22px">
+    <a class="btn btn-dl" id="dlBtn" href="https://pub-d99b9f8e2b0a44b2a7a6de3fa122f138.r2.dev/DesktopBroom.exe" download aria-label="Download Desktop Broom for Windows (64-bit x64)">⬇️ Download Free (Windows x64, 77 MB)</a>
+    <a class="btn btn-ios" id="dlMacBtn" href="https://github.com/Kastan97/desktop-broom/releases/latest" target="_blank" rel="noopener" aria-label="Download Desktop Broom for Mac from GitHub Releases">🍎 Download for Mac (.dmg, 28 KB)</a>
+    <a class="btn" href="https://github.com/Kastan97/desktop-broom" target="_blank" rel="noopener" aria-label="View the Desktop Broom source code on GitHub">🐙 view source on GitHub</a>
+  </div>
+  <p class="dl-note">works on Windows 10 &amp; 11 (64-bit / x64) · ~77&nbsp;MB · <strong>always free</strong></p>
+  <p class="dl-note" style="max-width:660px;margin:10px auto 0;opacity:.85;line-height:1.5">🛡️ heads-up: desktop broom is brand-new indie freeware, so Windows &amp; Chrome may pop a <em>"unknown publisher / file not commonly downloaded"</em> warning the first time. it's safe — just click <strong>"More info → Run anyway"</strong> on Windows (and <strong>"Keep"</strong> in Chrome). a verified publisher signature is on the way.</p>
+</header>
+
+<main>
+
+<!-- ===== WHAT DOES IT DO ===== -->
+<section class="wrap" id="what" aria-labelledby="what-h">
+  <div class="box tiltL" style="--panelbg:#e8fff0">
+    <h2 id="what-h" class="wordart">wat does it do?? 🤔</h2>
+    <hr class="hr-candy">
+    <p class="lead">it <strong>automatically organizes desktop files &amp; any folder</strong>!! point desktop broom at your messy desktop (or your downloads folder) and <em>*WHOOSH*</em> — every loose file gets swept into tidy folders by type. 🖼️ images with images, 📄 pdfs with pdfs, 📝 docs with docs. clean up a messy desktop in literally one click. ur welcome.</p>
+
+    <div class="desk" role="img" aria-label="Animation: a messy desktop full of loose files being swept by Sweepy the broom into neat folders labeled Images, PDFs and Documents">
+      <div class="bar"></div>
+      <span class="file" style="left:8%;  top:22%; --tx:78vw;  --ty:36vh; --r:-12deg" aria-hidden="true">📄</span>
+      <span class="file" style="left:26%; top:16%; --tx:60vw;  --ty:40vh; --r:8deg;  animation-delay:.15s" aria-hidden="true">🖼️</span>
+      <span class="file" style="left:44%; top:30%; --tx:42vw;  --ty:34vh; --r:-6deg; animation-delay:.05s" aria-hidden="true">📊</span>
+      <span class="file" style="left:16%; top:48%; --tx:70vw;  --ty:12vh; --r:14deg; animation-delay:.25s" aria-hidden="true">🎵</span>
+      <span class="file" style="left:60%; top:20%; --tx:26vw;  --ty:40vh; --r:-10deg;animation-delay:.1s"  aria-hidden="true">📦</span>
+      <span class="file" style="left:36%; top:52%; --tx:50vw;  --ty:10vh; --r:9deg;  animation-delay:.3s"  aria-hidden="true">📄</span>
+      <span class="file" style="left:70%; top:44%; --tx:18vw;  --ty:14vh; --r:-14deg;animation-delay:.2s"  aria-hidden="true">🖼️</span>
+      <span class="file" style="left:52%; top:60%; --tx:34vw;  --ty:2vh;  --r:6deg;  animation-delay:.35s" aria-hidden="true">🗒️</span>
+      <span class="broomer" aria-hidden="true">🧹</span>
+      <div class="folders" aria-hidden="true">
+        <div class="folder"><span>📁</span>Images</div>
+        <div class="folder" style="animation-delay:.12s"><span>📁</span>PDFs</div>
+        <div class="folder" style="animation-delay:.24s"><span>📁</span>Docs</div>
+      </div>
+    </div>
+    <p class="demo-note">↑ messy → tidy, on loop. (that's the whole app, honestly.)</p>
+  </div>
+</section>
+
+<!-- ===== ORGANIZE ANYTHING ===== -->
+<section class="wrap" id="anything" aria-labelledby="anything-h">
+  <div class="box tiltR" style="--panelbg:#eefaff">
+    <h2 id="anything-h" class="wordart">⚡ organize ANYTHING</h2>
+    <hr class="hr-candy">
+    <p class="lead">not just your desktop!! point desktop broom at <strong>any folder or any drive</strong> and watch the chaos vanish 💨</p>
+    <ul class="promises">
+      <li>💾 <b>any drive.</b> internal hard drive, SSD, a USB stick, or an external / portable hard drive — if your computer can see it, sweepy can tidy it.</li>
+      <li>📁 <b>any folder.</b> downloads, documents, that one “misc” folder you’re scared of — sorted by type in one go.</li>
+      <li>🖼️ <b>photos &amp; files in a blink.</b> thousands of loose photos and files swept into clean, labeled folders in <em>seconds</em>.</li>
+      <li>👀 <b>still 100% safe.</b> preview first, nothing deleted, one-click undo — on every folder and every drive.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== IS IT SAFE ===== -->
+<section class="wrap" id="safe" aria-labelledby="safe-h">
+  <div class="box tiltR" style="--panelbg:#f2fff6">
+    <h2 id="safe-h" class="wordart">is it SAFE?? <span class="yesbig">✅ YES</span> (pinky promise)</h2>
+    <hr class="hr-candy">
+    <ul class="promises">
+      <li>🛟 <b>never deletes anything.</b> it only <em>moves</em> stuff. your files don't go anywhere scary.</li>
+      <li>📂 <b>only touches loose files.</b> your existing folders &amp; projects are never opened, moved, or renamed.</li>
+      <li>👀 <b>shows you a preview first.</b> you see exactly what goes where — <em>nothing happens</em> until you say go.</li>
+      <li>↩️ <b>one-click undo.</b> hate it? one button puts everything right back.</li>
+      <li>🤖 <b>AI is 100% optional</b> and off by default. in smart mode it sends small text snippets to your chosen provider with <em>YOUR</em> own key — nothing else leaves your machine.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== HOW TO USE ===== -->
+<section class="wrap" id="how" aria-labelledby="how-h">
+  <div class="box tiltL" style="--panelbg:#fff7fb">
+    <h2 id="how-h" class="wordart">how 2 use (its easy lol) 👇</h2>
+    <hr class="hr-candy">
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <span class="em" aria-hidden="true">📂</span>
+        <h3>pick a folder</h3>
+        <p>point sweepy at your desktop (or your downloads folder).</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <span class="em" aria-hidden="true">👀</span>
+        <h3>see the plan</h3>
+        <p>sweepy shows u exactly what goes where. nothing has happened yet!</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <span class="em" aria-hidden="true">🧹</span>
+        <h3>click SWEEP</h3>
+        <p>boom. clean desktop. go outside. touch grass. 🌱</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SMART MODE ===== -->
+<section class="wrap" id="smart" aria-labelledby="smart-h">
+  <div class="box tiltR" style="--panelbg:#eefcff">
+    <h2 id="smart-h" class="wordart">🤖 smart mode</h2>
+    <hr class="hr-candy">
+    <p class="lead">flip on smart mode and desktop broom becomes an <strong>AI file organizer</strong> that actually <em>reads</em> your files and gives them real names. it's the auto-rename-files glow-up your downloads folder deserves:</p>
+    <div class="rename" aria-label="Example of AI renaming a file">
+      <span class="bad">IMG_20231104_final_FINAL_v2(3).jpg</span><br>
+      ⬇️ becomes ⬇️<br>
+      <span class="good">2023-11-04 — birthday cake photo.jpg</span>
+    </div>
+    <p style="margin:14px 0 0"><strong>bring your own key</strong> — works with Claude, GPT, or DeepSeek. smart mode sends only small snippets to your provider; your key stays on your machine and we never see anything.</p>
+    <span class="toggle">🔌 SMART MODE: <strong>&nbsp;OFF by default</strong></span>
+  </div>
+</section>
+
+<!-- ===== iOS ===== -->
+<section class="wrap" id="ios" aria-labelledby="ios-h">
+  <div class="box tiltL" style="--panelbg:#fffbe6">
+    <h2 id="ios-h" class="wordart">📱 ios version?? <span class="soon">COMING SOON!!</span></h2>
+    <hr class="hr-candy">
+    <p class="lead">a lil companion app that tidies your photos &amp; files on the go. the ios app is not built yet — but it is coming (sideload first)!! drop ur email &amp; we will ping u the moment it is ready 👇</p>
+    <p style="font-size:14px;opacity:.85;margin:12px 0 2px">📮 no ios download yet — get on the list:</p>
+    <!-- TODO: swap the mailto in the script for a real form endpoint / email service if you prefer -->
+    <form class="waitform" id="waitlist" novalidate>
+      <label class="sr-only" for="wl-email">Your email for the iOS waitlist</label>
+      <input id="wl-email" type="email" name="email" placeholder="ur@email.com" autocomplete="email" required>
+      <button class="btn" type="submit">🔔 notify me!!</button>
+    </form>
+    <p id="waitmsg" role="status" aria-live="polite"></p>
+    <p style="font-size:14px;opacity:.8;margin:8px 0 0">no spam. we can barely send one email, let alone spam u. 🐌</p>
+  </div>
+</section>
+
+<!-- ===== DONATE ===== -->
+<section class="wrap donate" id="donate" aria-labelledby="donate-h">
+  <div class="box tiltR" style="--panelbg:#ffeef8">
+    <h2 id="donate-h" class="wordart">💸 donate (we run on snacks 🍕)</h2>
+    <hr class="hr-candy">
+    <p class="lead">desktop broom is <strong>FREE 4EVER</strong>. no catch, no ads, no premium tier, no "pro" nonsense. but snacks &amp; server bills cost money — so if sweepy saved your sanity, chuck us a few bucks. 🥺</p>
+    <div class="btn-row" style="margin-top:18px">
+      <!-- TODO: replace with your real Buy Me a Coffee URL -->
+      <a class="btn coffee" href="#" data-todo="https://www.buymeacoffee.com/desktopbroom" aria-label="Donate via Buy Me a Coffee">☕ buy me a coffee</a>
+      <!-- TODO: replace with your real Ko-fi URL -->
+      <a class="btn kofi" href="#" data-todo="https://ko-fi.com/desktopbroom" aria-label="Donate via Ko-fi">💛 ko-fi</a>
+      <!-- TODO: replace with your real PayPal URL -->
+      <a class="btn paypal" href="#" data-todo="https://paypal.me/desktopbroom" aria-label="Donate via PayPal">🅿️ paypal</a>
+    </div>
+    <p class="cheeky">every <strong>$3</strong> buys sweepy a new bristle. 🧹💚</p>
+  </div>
+</section>
+
+<!-- ===== REVIEWS (public star reviews) ===== -->
+<section class="wrap" id="reviews" aria-labelledby="reviews-h">
+  <div class="box tiltL" style="--panelbg:#fffef2">
+    <h2 id="reviews-h" class="wordart">📝 reviews (leave a public one!!)</h2>
+    <hr class="hr-candy">
+    <p class="lead">rate sweepy &amp; leave a review — no sign-up, anyone can post, everyone can see 🌟</p>
+    <form id="reviewForm" style="display:grid;gap:10px;margin-top:6px" novalidate>
+      <label class="sr-only" for="rv-name">your name</label>
+      <input id="rv-name" type="text" maxlength="40" placeholder="ur name (or 'anonymous hero')" autocomplete="name" style="font-family:var(--comic);font-size:16px;padding:10px;border:0;box-shadow:var(--bevel-in);background:#fff;color:#111;border-radius:0">
+      <div id="rv-stars" role="radiogroup" aria-label="Your rating" style="display:flex;gap:4px;font-size:32px;line-height:1;user-select:none">
+        <button type="button" class="star on" data-v="1" aria-label="1 star">★</button>
+        <button type="button" class="star on" data-v="2" aria-label="2 stars">★</button>
+        <button type="button" class="star on" data-v="3" aria-label="3 stars">★</button>
+        <button type="button" class="star on" data-v="4" aria-label="4 stars">★</button>
+        <button type="button" class="star on" data-v="5" aria-label="5 stars">★</button>
+      </div>
+      <label class="sr-only" for="rv-text">your review</label>
+      <textarea id="rv-text" maxlength="280" rows="3" placeholder="my desktop has never been cleaner!! 10/10 would sweep again" style="font-family:var(--comic);font-size:16px;padding:10px;border:0;box-shadow:var(--bevel-in);background:#fff;color:#111;border-radius:0;resize:vertical"></textarea>
+      <button class="btn btn-dl" type="submit" style="font-size:20px">✍️ post my review!!</button>
+    </form>
+    <p id="rv-msg" role="status" aria-live="polite" style="font-weight:bold;color:#0a7a2a;min-height:1.2em;margin:10px 0 0"></p>
+    <div id="reviewList" style="display:grid;gap:12px;margin-top:16px"></div>
+    <p id="rv-mode" style="font-size:12px;opacity:.7;margin:12px 0 0"></p>
+    <!--
+      TODO — make reviews public for ALL visitors (free, ~5 min with Supabase):
+      1. Create a free project at supabase.com.
+      2. In the SQL editor run:
+           create table reviews (id bigint generated always as identity primary key,
+             name text, stars int, text text, created_at timestamptz default now());
+           alter table reviews enable row level security;
+           create policy "anyone can read" on reviews for select using (true);
+           create policy "anyone can insert" on reviews for insert with check (true);
+      3. In Project Settings → API, copy the Project URL and the anon public key.
+      4. Paste them into REVIEW_API (url + key) in the script at the bottom of this file,
+         replacing the TODO_ values. Done — anyone can post, everyone sees them.
+      Until then the board runs in on-device preview mode.
+    -->
+  </div>
+</section>
+
+<!-- ===== SHARE ===== -->
+<section class="wrap" id="share" aria-labelledby="share-h">
+  <div class="box tiltR" style="--panelbg:#f2f0ff">
+    <h2 id="share-h" class="wordart">📣 tell a friend!!</h2>
+    <hr class="hr-candy">
+    <p class="lead">know someone with an embarrassing desktop? do them a favor 💚</p>
+    <div class="btn-row" style="justify-content:flex-start">
+      <a class="btn" id="shX" href="#" target="_blank" rel="noopener" aria-label="Share on Twitter/X">🐦 Twitter / X</a>
+      <a class="btn" id="shFb" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">📘 Facebook</a>
+      <a class="btn" id="shWa" href="#" target="_blank" rel="noopener" aria-label="Share on WhatsApp">💬 WhatsApp</a>
+      <a class="btn" id="shRd" href="#" target="_blank" rel="noopener" aria-label="Share on Reddit">👽 Reddit</a>
+      <button class="btn" id="shCopy" type="button">🔗 copy link</button>
+    </div>
+    <p id="sh-msg" role="status" aria-live="polite" style="font-weight:bold;color:#0a7a2a;min-height:1.2em;margin:10px 0 0"></p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="wrap" id="faq" aria-labelledby="faq-h">
+  <div class="box tiltL" style="--panelbg:#f6f6ff">
+    <h2 id="faq-h" class="wordart">❓ faq (the important boring bit)</h2>
+    <hr class="hr-candy">
+
+    <h3 style="color:#111;margin-top:14px">is desktop broom really free?</h3>
+    <p>yep — <strong>100% free forever</strong>. no ads, no sign-up, no premium tier, no catch. desktop broom is donation-supported freeware. if you love it you can chip in, but you never have to.</p>
+
+    <h3 style="color:#111;margin-top:18px">how does it clean up a messy desktop?</h3>
+    <p>point desktop broom at your desktop or your downloads folder and it automatically sorts every loose file into tidy folders by type — images, PDFs, documents and more. one click and your messy desktop is clean.</p>
+
+    <h3 style="color:#111;margin-top:18px">is the free desktop cleaner safe? will it delete my files?</h3>
+    <p>never. desktop broom does <strong>not delete anything</strong> — it only moves loose files into folders, and it never touches your existing folders or projects. it shows a full preview of the plan before doing anything, and there's one-click undo if you change your mind.</p>
+
+    <h3 style="color:#111;margin-top:18px">do i need an AI key to use it?</h3>
+    <p>no. the AI file organizer is completely optional and off by default. basic desktop cleaning works with zero setup and zero AI. if you turn on smart mode to auto-rename files, you bring your own key (claude, GPT or deepseek). smart mode sends only small text snippets to your provider — your key stays on your machine.</p>
+
+    <h3 style="color:#111;margin-top:18px">can it organize my downloads folder too?</h3>
+    <p>yes. desktop broom can declutter your desktop and organize your downloads folder the same way, sweeping loose files into clean, labeled folders by type.</p>
+
+    <h3 style="color:#111;margin-top:18px">which platforms does desktop broom support?</h3>
+    <p>desktop broom runs on regular windows 10 &amp; 11 PCs (64-bit / x64) right now, plus macOS. an ios version (sideload) is planned after that.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><span class="counter" role="img" aria-label="Visitor counter">👁️ <span id="hitcount">#000,420</span></span></p>
+  <p>you are visitor <strong id="hitcount2">#000,420</strong> · thanks 4 stopping by 💚</p>
+  <p class="best">best viewed in Netscape Navigator 4.0 at 800×600 😎</p>
+  <nav class="flr" aria-label="Footer links">
+    <a href="https://github.com/Kastan97/desktop-broom" target="_blank" rel="noopener">⭐ GitHub</a> ·
+    <a href="#donate">donate</a> ·
+    <a href="#faq">faq</a> ·
+    <a href="#ios">ios waitlist</a>
+  </nav>
+  <p>freeware — do whatever u want with it. 🕊️ this site is 100% hand-coded &amp; 0% cookies 🍪🚫</p>
+  <p>© 2026 Desktop Broom · made with 💚 &amp; questionable taste · <strong>desktopbroom.com</strong></p>
+<p style="max-width:640px;margin:16px auto 0;font-size:12px;opacity:.7;line-height:1.5">⚠️ Use at your own risk. Desktop Broom is provided &quot;as is&quot;, without warranty of any kind. We are not responsible for any data loss, damage, or other consequences from using it. Always keep a backup.</p>
+</footer>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var isTouch = window.matchMedia && matchMedia("(hover: none)").matches;
+
+  /* ---- visitor hit counter (live Cloudflare Worker + localStorage fallback) ---- */
+  var COUNTER_URL = 'https://desktopbroom-counter.miamiautovault.workers.dev/';
+  function showCount(formatted){
+    var a = document.getElementById("hitcount");
+    var b = document.getElementById("hitcount2");
+    if(a) a.textContent = formatted;
+    if(b) b.textContent = formatted;
+  }
+  function localCount(){
+    try{
+      var base = 419;
+      var v = parseInt(localStorage.getItem("db_visits") || "0", 10) + 1;
+      localStorage.setItem("db_visits", String(v));
+      var total = base + v;
+      var s = String(total);
+      while(s.length < 6){ s = "0" + s; }
+      return "#" + s.slice(0,3) + "," + s.slice(3);
+    }catch(e){ return "#000,420"; }
+  }
+  showCount(localCount());
+  fetch(COUNTER_URL, { method: 'GET' })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){ if(d && d.formatted){ showCount(d.formatted); } })
+    .catch(function(){ /* use localStorage fallback already shown */ });
+
+  /* ---- block navigation on clearly-TODO placeholder links ---- */
+  var todos = document.querySelectorAll("[data-todo]");
+  for(var i=0;i<todos.length;i++){
+    todos[i].addEventListener("click", function(ev){ ev.preventDefault(); });
+  }
+
+  /* ---- download button (Windows): confetti + open Releases ---- */
+  var dlEls = document.querySelectorAll("#dlBtn, #dlMacBtn");
+  for(var q=0;q<dlEls.length;q++){ dlEls[q].addEventListener("click", function(){ fireConfetti(); }); }
+
+  /* ---- iOS waitlist (mailto fallback) ---- */
+  var form = document.getElementById("waitlist");
+  if(form){
+    form.addEventListener("submit", function(ev){
+      ev.preventDefault();
+      var input = form.querySelector("input[type=email]");
+      var email = input ? input.value.trim() : "";
+      var msg = document.getElementById("waitmsg");
+      if(!/^.+@.+\..+$/.test(email)){
+        if(msg){ msg.style.color = "#c0143c"; msg.textContent = "hmm that email looks a lil sus 🤨 try again!"; }
+        return;
+      }
+      if(msg){ msg.style.color = "#0a7a2a"; msg.textContent = "YAY!! ur on the list 🎉 (opening ur email app to confirm...)"; }
+      fireConfetti();
+      /* TODO: replace this mailto with a real form endpoint / email service */
+      window.location.href = "mailto:hello@desktopbroom.com"
+        + "?subject=" + encodeURIComponent("iOS waitlist")
+        + "&body=" + encodeURIComponent("add me to the Desktop Broom iOS waitlist! " + email);
+    });
+  }
+
+  /* ---- cursor sparkle trail (skip on touch / reduced-motion) ---- */
+  if(!reduce && !isTouch){
+    var last = 0;
+    var colors = ["#39ff14","#ff00cc","#00ffff","#ffe600","#ffffff"];
+    document.addEventListener("pointermove", function(ev){
+      var now = Date.now();
+      if(now - last < 45) return;
+      last = now;
+      var sp = document.createElement("span");
+      sp.className = "sparkle";
+      sp.setAttribute("aria-hidden","true");
+      sp.textContent = "✦";
+      sp.style.left = ev.clientX + "px";
+      sp.style.top = ev.clientY + "px";
+      sp.style.color = colors[(Math.random()*colors.length)|0];
+      document.body.appendChild(sp);
+      setTimeout(function(){ if(sp.parentNode) sp.parentNode.removeChild(sp); }, 760);
+    }, {passive:true});
+  }
+
+  /* ---- confetti (vanilla canvas, self-cleaning) ---- */
+  function fireConfetti(){
+    var canvas = document.getElementById("confetti");
+    if(!canvas) return;
+    var ctx = canvas.getContext("2d");
+    var W = canvas.width = window.innerWidth;
+    var H = canvas.height = window.innerHeight;
+    var colors = ["#39ff14","#ff00cc","#00ffff","#ffe600","#ffffff","#ff2b2b"];
+    var N = reduce ? 24 : 150;
+    var parts = [];
+    for(var i=0;i<N;i++){
+      parts.push({
+        x: W/2 + (Math.random()-0.5)*120,
+        y: H*0.26,
+        vx: (Math.random()-0.5)*15,
+        vy: Math.random()*-15 - 4,
+        g: 0.35 + Math.random()*0.22,
+        size: 6 + Math.random()*9,
+        color: colors[(Math.random()*colors.length)|0],
+        rot: Math.random()*6.28,
+        vr: (Math.random()-0.5)*0.4
+      });
+    }
+    canvas.style.display = "block";
+    var start = performance.now();
+    function frame(t){
+      ctx.clearRect(0,0,W,H);
+      var alive = false;
+      for(var i=0;i<parts.length;i++){
+        var p = parts[i];
+        p.vy += p.g; p.vx *= 0.99;
+        p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+        if(p.y < H + 50) alive = true;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size*0.62);
+        ctx.restore();
+      }
+      if(alive && (t - start) < 4200){ requestAnimationFrame(frame); }
+      else { ctx.clearRect(0,0,W,H); canvas.style.display = "none"; }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ---- social share links ---- */
+  var shareUrl = "https://desktopbroom.com/";
+  var shareText = "Desktop Broom \u2014 a free app that sweeps your messy desktop into tidy folders \ud83e\uddf9";
+  var eu = encodeURIComponent(shareUrl), et = encodeURIComponent(shareText);
+  function setHref(id, url){ var el = document.getElementById(id); if(el) el.href = url; }
+  setHref("shX", "https://twitter.com/intent/tweet?text=" + et + "&url=" + eu);
+  setHref("shFb", "https://www.facebook.com/sharer/sharer.php?u=" + eu);
+  setHref("shWa", "https://api.whatsapp.com/send?text=" + et + "%20" + eu);
+  setHref("shRd", "https://www.reddit.com/submit?url=" + eu + "&title=" + et);
+  var cp = document.getElementById("shCopy");
+  if(cp){ cp.addEventListener("click", function(){
+    var m = document.getElementById("sh-msg");
+    var done = function(){ if(m){ m.textContent = "link copied!! \ud83d\udd17"; } };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(shareUrl).then(done, done); } else { done(); }
+  }); }
+
+  /* ---- public star reviews (Supabase-backed, on-device preview fallback) ---- */
+  var REVIEW_API = { url: "https://fyjskzgpxocvnyhiezaq.supabase.co", key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5anNremdweG9jdm55aGllemFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQxMDgzNTksImV4cCI6MjA5OTY4NDM1OX0.akhJydykAfRBysGZ0wcNX6_J339sc0dBPB9NR_C6Ao8" };
+  var rvRemote = REVIEW_API.url.length > 0 && REVIEW_API.key.length > 0;
+  var RVK = "db_reviews";
+  var curStars = 5;
+  function escR(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function starRow(n){ n = Math.max(1, Math.min(5, n|0)); return '<span style="color:#e8a200;letter-spacing:2px">' + "\u2605\u2605\u2605\u2605\u2605".slice(0,n) + '</span><span style="color:#555;letter-spacing:2px">' + "\u2606\u2606\u2606\u2606\u2606".slice(0,5-n) + '</span>'; }
+  function paintPicker(){ var b = document.querySelectorAll("#rv-stars .star"); for(var i=0;i<b.length;i++){ if(i < curStars){ b[i].className = "star on"; b[i].textContent = "\u2605"; } else { b[i].className = "star off"; b[i].textContent = "\u2606"; } } }
+  function renderList(items){
+    var list = document.getElementById("reviewList"); if(!list) return;
+    if(!items || !items.length){ list.innerHTML = '<p style="opacity:.7">no reviews yet \u2014 be the first!! \ud83c\udf89</p>'; return; }
+    list.innerHTML = items.map(function(r){
+      return '<div style="background:#fff;border:3px solid #000;box-shadow:3px 3px 0 rgba(0,0,0,.4);padding:12px 14px">'
+        + '<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><strong>' + escR(r.name || "anonymous hero") + '</strong><span>' + starRow(r.stars) + '</span></div>'
+        + '<p style="margin:6px 0 0">' + escR(r.text) + '</p></div>';
+    }).join("");
+  }
+  function rvLocalGet(){ try{ return JSON.parse(localStorage.getItem(RVK) || "[]"); }catch(e){ return []; } }
+  function rvLocalAdd(r){ var a = rvLocalGet(); a.unshift(r); try{ localStorage.setItem(RVK, JSON.stringify(a)); }catch(e){} return a; }
+  function loadReviews(){
+    var m = document.getElementById("rv-mode");
+    if(rvRemote){
+      fetch(REVIEW_API.url + "/rest/v1/reviews?select=name,stars,text&order=created_at.desc&limit=100", { headers: { apikey: REVIEW_API.key, Authorization: "Bearer " + REVIEW_API.key } })
+        .then(function(r){ return r.json(); })
+        .then(function(d){ renderList(d); if(m) m.textContent = "\ud83c\udf0d public reviews \u2014 anyone can read and post."; })
+        .catch(function(){ renderList(rvLocalGet()); if(m) m.textContent = "\u26a0\ufe0f couldn't reach the reviews server; showing a local copy."; });
+    } else {
+      renderList(rvLocalGet());
+      if(m) m.textContent = "\u2139\ufe0f preview mode (saved on this device). add Supabase keys in the code to make reviews public for everyone.";
+    }
+  }
+  var rvSp = document.getElementById("rv-stars");
+  if(rvSp){ rvSp.addEventListener("click", function(e){ var b = e.target && e.target.closest ? e.target.closest(".star") : null; if(!b) return; curStars = parseInt(b.getAttribute("data-v"), 10) || 5; paintPicker(); }); paintPicker(); }
+  var rvForm = document.getElementById("reviewForm");
+  if(rvForm){ rvForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = (document.getElementById("rv-name").value || "").trim() || "anonymous hero";
+    var text = (document.getElementById("rv-text").value || "").trim();
+    var msg = document.getElementById("rv-msg");
+    if(text.length < 3){ if(msg){ msg.style.color = "#c0143c"; msg.textContent = "write a lil more!! \ud83d\ude42"; } return; }
+    var rec = { name: name, stars: curStars, text: text };
+    if(rvRemote){
+      fetch(REVIEW_API.url + "/rest/v1/reviews", { method: "POST", headers: { apikey: REVIEW_API.key, Authorization: "Bearer " + REVIEW_API.key, "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify(rec) })
+        .then(function(r){ if(!r.ok){ throw 0; } if(msg){ msg.style.color = "#0a7a2a"; msg.textContent = "posted!! thanks \ud83d\udc9a"; } rvForm.reset(); curStars = 5; paintPicker(); fireConfetti(); loadReviews(); })
+        .catch(function(){ if(msg){ msg.style.color = "#c0143c"; msg.textContent = "hmm, couldn't post right now \u2014 try again in a bit."; } });
+    } else {
+      rvLocalAdd(rec); if(msg){ msg.style.color = "#0a7a2a"; msg.textContent = "posted!! (preview mode, on this device) \ud83d\udc9a"; } rvForm.reset(); curStars = 5; paintPicker(); fireConfetti(); renderList(rvLocalGet());
+    }
+  }); }
+  loadReviews();
+
+})();
+</script>
+
+<!-- ===== ICQ / AIM — ask sweepy (AI chat) ===== -->
+<div id="imDock" style="position:fixed;right:14px;bottom:14px;z-index:9995;display:flex;flex-direction:column;gap:10px;align-items:flex-end;font-family:var(--tahoma)">
+  <div id="imWin" role="dialog" aria-label="Chat with Sweepy" style="display:none;width:300px;max-width:calc(100vw - 28px);background:#c0c0c0;box-shadow:var(--bevel),6px 6px 0 rgba(0,0,0,.5)">
+    <div style="display:flex;align-items:center;gap:7px;background:linear-gradient(90deg,#000080,#1084d0);color:#fff;padding:6px 8px;font-weight:bold;font-size:13px">
+      <img src="icq-logo.png" alt="ICQ" width="18" height="18" style="display:block">
+      <img src="aim-logo.png" alt="AIM" width="18" height="18" style="display:block">
+      <span style="margin-left:2px">Sweepy Messenger</span>
+      <button id="imClose" type="button" aria-label="Close chat" style="margin-left:auto;width:20px;height:18px;display:grid;place-items:center;background:#c0c0c0;color:#000;border:0;box-shadow:var(--bevel);cursor:pointer;font-weight:bold;font-family:system-ui,sans-serif">×</button>
+    </div>
+    <div style="padding:6px 10px;font-size:12px;color:#0a7a2a;font-family:var(--comic);font-weight:bold">🟢 sweepy is online — ask about safety, price, platforms…</div>
+    <div id="imMsgs" style="height:200px;overflow:auto;background:#fff;box-shadow:var(--bevel-in);margin:0 8px;padding:8px;font-family:var(--comic)"></div>
+    <form id="imForm" style="display:flex;gap:6px;padding:8px">
+      <label class="sr-only" for="imInput">Ask Sweepy a question</label>
+      <input id="imInput" type="text" autocomplete="off" placeholder="ask sweepy…" style="flex:1;min-width:0;font-family:var(--comic);font-size:14px;padding:7px;border:0;box-shadow:var(--bevel-in);background:#fff;color:#111;border-radius:0">
+      <button class="btn" type="submit" style="padding:7px 12px;font-size:13px">send</button>
+    </form>
+  </div>
+  <button id="imToggle" type="button" aria-label="Open chat with Sweepy" style="display:flex;align-items:center;gap:8px;background:#c0c0c0;box-shadow:var(--bevel);border:0;cursor:pointer;padding:8px 12px;font-family:var(--tahoma);font-weight:bold;font-size:13px;color:#111">
+    <img src="icq-logo.png" alt="" width="26" height="26" style="display:block">
+    <img src="aim-logo.png" alt="" width="26" height="26" style="display:block">
+    <span>ask sweepy 💬</span>
+  </button>
+</div>
+<script>
+(function(){
+  var win=document.getElementById("imWin"), toggle=document.getElementById("imToggle"), closeB=document.getElementById("imClose");
+  var msgs=document.getElementById("imMsgs"), form=document.getElementById("imForm"), input=document.getElementById("imInput");
+  if(!win||!toggle) return;
+  function openWin(){ win.style.display="block"; if(input) input.focus(); }
+  function hideWin(){ win.style.display="none"; }
+  toggle.addEventListener("click", function(){ win.style.display==="block"?hideWin():openWin(); });
+  closeB.addEventListener("click", hideWin);
+  function bubble(who,text){
+    var wrap=document.createElement("div");
+    wrap.style.cssText="margin:6px 0;display:flex;"+(who==="me"?"justify-content:flex-end":"justify-content:flex-start");
+    var b=document.createElement("div");
+    b.textContent=text;
+    b.style.cssText="max-width:82%;padding:7px 10px;border:2px solid #000;font-size:14px;line-height:1.4;"+(who==="me"?"background:#c7f0ff":"background:#fff");
+    wrap.appendChild(b); msgs.appendChild(wrap); msgs.scrollTop=msgs.scrollHeight; return b;
+  }
+  bubble("bot","hi!! i'm sweepy 🧹 ask me anything about desktop broom — is it safe? how much? what platforms? go on 😊");
+  var FACTS="You are Sweepy, the friendly mascot and support bot for Desktop Broom, a free desktop-organizing app. Reply in 1-3 short, friendly, casual lowercase sentences, playful but never mean. Use ONLY these facts; if you are unsure, say so and point them to the FAQ on the page. FACTS: free forever, donation-supported, no ads, no sign-up. it sweeps loose files on your desktop or ANY folder or drive (internal, USB, external hard drive) into tidy folders by type; can organize your Downloads too; sorts thousands of photos and files in seconds. it never deletes anything, shows a preview first, and has one-click undo. optional Smart Mode uses AI to rename files with YOUR own api key (Claude, GPT or DeepSeek) and sends only small text snippets to that provider; it is off by default. platforms: Windows x64 (Windows 10 &amp; 11, 64-bit) available now, plus macOS; iOS coming soon (sideload). download from the site button or the GitHub Releases page. first launch may show an 'unknown publisher / not commonly downloaded' warning because it isn't code-signed yet - it's safe, click 'More info then Run anyway' on Windows or 'Keep' in Chrome. use at your own risk and keep backups.";
+  form.addEventListener("submit", async function(e){
+    e.preventDefault();
+    var q=(input.value||"").trim(); if(!q) return;
+    bubble("me",q); input.value="";
+    var typing=bubble("bot","sweepy is typing…");
+    try{
+      if(window.claude && window.claude.complete){
+        var reply=await window.claude.complete(FACTS+"\n\nUSER: "+q+"\nSweepy:");
+        typing.textContent=(reply||"").trim()||"hmm i blanked — the FAQ below has the answer!! 😅";
+      } else {
+        typing.textContent="my ai brain isn't wired up on this page yet — but the FAQ right below answers everything!! 🧹";
+      }
+    }catch(err){ typing.textContent="oops, couldn't reach my brain right now — try the FAQ below 😅"; }
+    msgs.scrollTop=msgs.scrollHeight;
+  });
+})();
+</script>
+</body>
+</html>
